@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import { MountainLogo } from "@/components/ui/mountain-logo";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
-import { Download, Menu, X, Shield, Sparkles } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,28 +37,28 @@ export function Navbar() {
             <div className="flex flex-col">
               <span className="text-lg sm:text-xl font-black tracking-wider text-white flex items-center gap-1.5">
                 SHIKHAR
-                <span className="text-[10px] sm:text-xs px-2 py-0.5 rounded-full font-bold bg-[#168BFF]/20 text-[#26D9FF] border border-[#26D9FF]/30">
+                <span className="text-[10px] sm:text-xs px-2 py-0.5 rounded-full font-extrabold bg-[#168BFF]/20 text-[#26D9FF] border border-[#26D9FF]/30">
                   BROWSER
                 </span>
               </span>
-              <span className="text-[9px] sm:text-[10px] tracking-widest text-[#A7B5CC] font-semibold truncate">
+              <span className="text-[9px] sm:text-[10px] tracking-widest text-[#A7B5CC] font-bold truncate">
                 YOUR WORLD. YOUR WEB.
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1 bg-[#101B35]/50 border border-[#26D9FF]/10 rounded-full px-4 py-1.5 backdrop-blur-md">
+          <div className="hidden lg:flex items-center gap-1 bg-[#101B35]/60 border border-[#26D9FF]/15 rounded-full px-4 py-1.5 backdrop-blur-md">
             {siteConfig.navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
                     isActive
-                      ? "text-white bg-[#168BFF]/30 shadow-[0_0_12px_rgba(38,217,255,0.3)] font-semibold border border-[#26D9FF]/30"
-                      : "text-[#A7B5CC] hover:text-white hover:bg-white/5"
+                      ? "text-white bg-[#168BFF]/35 shadow-[0_0_12px_rgba(38,217,255,0.3)] font-bold border border-[#26D9FF]/40"
+                      : "text-[#A7B5CC] hover:text-white hover:bg-white/5 font-semibold"
                   }`}
                 >
                   {item.label}
@@ -67,18 +67,16 @@ export function Navbar() {
             })}
           </div>
 
-          {/* Desktop Actions: Theme Toggle + Download Button */}
+          {/* Desktop Actions: Theme Toggle + Solid Gradient Download Button */}
           <div className="hidden md:flex items-center gap-2.5">
             <ThemeToggle />
 
             <Link
               href="/downloads"
-              className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs font-bold rounded-full group bg-gradient-to-br from-[#26D9FF] via-[#168BFF] to-[#8B3DFF] group-hover:from-[#26D9FF] group-hover:to-[#8B3DFF] hover:text-white shadow-[0_0_20px_rgba(38,217,255,0.35)] transition-all duration-300 hover:scale-[1.02]"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-extrabold text-white bg-gradient-to-r from-[#168BFF] via-[#26D9FF] to-[#8B3DFF] shadow-[0_0_20px_rgba(38,217,255,0.35)] hover:shadow-[0_0_30px_rgba(38,217,255,0.55)] transition-all duration-300 hover:scale-[1.03] gap-2 shrink-0"
             >
-              <span className="relative px-4 sm:px-5 py-2 transition-all ease-in duration-75 bg-[#070D1D] rounded-full group-hover:bg-opacity-0 flex items-center gap-2">
-                <Download className="w-4 h-4 text-[#26D9FF] group-hover:text-white" />
-                <span>Download SHIKHAR</span>
-              </span>
+              <Download className="w-4 h-4 text-white" />
+              <span className="text-white font-extrabold tracking-wide">Download SHIKHAR</span>
             </Link>
           </div>
 
@@ -108,7 +106,7 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`px-3 py-2.5 rounded-xl text-xs font-semibold text-center transition-all ${
+                  className={`px-3 py-2.5 rounded-xl text-xs font-bold text-center transition-all ${
                     isActive
                       ? "bg-[#168BFF]/25 text-[#26D9FF] border border-[#26D9FF]/40 shadow-sm"
                       : "text-[#A7B5CC] hover:text-white hover:bg-white/5 bg-[#101B35]/40 border border-white/5"
@@ -125,10 +123,10 @@ export function Navbar() {
             <Link
               href="/downloads"
               onClick={() => setIsOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-xs text-white bg-gradient-to-r from-[#168BFF] via-[#26D9FF] to-[#8B3DFF] shadow-lg shadow-[#168BFF]/25"
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl font-extrabold text-xs text-white bg-gradient-to-r from-[#168BFF] via-[#26D9FF] to-[#8B3DFF] shadow-lg shadow-[#168BFF]/25"
             >
-              <Download className="w-4 h-4" />
-              Download SHIKHAR (Windows & Android)
+              <Download className="w-4 h-4 text-white" />
+              <span className="text-white font-extrabold">Download SHIKHAR (Windows & Android)</span>
             </Link>
           </div>
         </div>

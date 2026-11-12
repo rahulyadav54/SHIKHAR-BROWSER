@@ -91,19 +91,54 @@ html.light .bg-\[\#0C152B\],
 html.light .bg-\[\#0A1224\],
 html.light .bg-\[\#101B35\]\/50,
 html.light .bg-\[\#101B35\]\/60,
-html.light .bg-\[\#101B35\]\/70,
-html.light .bg-\[\#101B35\]\/80,
-html.light .bg-\[\#101B35\]\/90,
 html.light .glass-panel {
   background-color: #FFFFFF !important;
   border-color: #E2E8F0 !important;
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04) !important;
 }
 
-html.light .glass-panel:hover,
-html.light .glass-panel-hover:hover {
+/* Hero Badge & Active Pills */
+html.light .bg-\[\#101B35\]\/80,
+html.light .bg-\[\#101B35\]\/90 {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06) !important;
+}
+
+html.light .bg-\[\#101B35\]\/80 span,
+html.light .bg-\[\#101B35\]\/90 span {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+
+/* Inactive platform buttons */
+html.light .bg-\[\#101B35\]\/70 {
+  background-color: #FFFFFF !important;
+  color: #334155 !important;
+  border-color: #CBD5E1 !important;
+}
+
+html.light .bg-\[\#101B35\]\/70:hover {
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+/* Secondary CTA Button in Hero */
+html.light a[href="/features"].bg-\[\#101B35\]\/80 {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light a[href="/features"].bg-\[\#101B35\]\/80:hover {
+  background-color: #F8FAFC !important;
   border-color: #0284C7 !important;
-  box-shadow: 0 12px 30px -4px rgba(2, 132, 199, 0.15) !important;
+}
+
+html.light a[href="/features"].bg-\[\#101B35\]\/80 span {
+  color: #0F172A !important;
 }
 
 /* Card gradient transformations in Light Mode */
@@ -174,10 +209,21 @@ html.light .text-amber-400 {
   color: #B45309 !important; /* Deep amber bronze */
 }
 
-/* Hover accent colors */
-html.light .hover\:text-\[\#26D9FF\]:hover,
-html.light .group:hover .group-hover\:text-\[\#26D9FF\] {
+/* Navbar active & inactive links in Bright Mode */
+html.light nav {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  border-bottom-color: #E2E8F0 !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06) !important;
+}
+
+html.light nav .text-\[\#A7B5CC\] {
+  color: #334155 !important;
+  font-weight: 600 !important;
+}
+
+html.light nav .text-\[\#A7B5CC\]:hover {
   color: #0284C7 !important;
+  background-color: #F1F5F9 !important;
 }
 
 /* Badges & Pills in Bright Mode */
@@ -202,7 +248,11 @@ html.light .bg-amber-500\/20 {
 
 html.light .bg-\[\#168BFF\]\/15,
 html.light .bg-\[\#168BFF\]\/20,
-html.light .bg-\[\#168BFF\]\/25,
+html.light .bg-\[\#168BFF\]\/25 {
+  background-color: #F0F9FF !important;
+  border-color: #BAE6FD !important;
+}
+
 html.light .bg-\[\#26D9FF\]\/10,
 html.light .bg-\[\#26D9FF\]\/20,
 html.light .bg-\[\#26D9FF\]\/30 {
@@ -252,7 +302,7 @@ html.light .text-gradient-cyan {
   -webkit-text-fill-color: transparent !important;
 }
 
-/* Buttons with gradients: crystal clear white text */
+/* Solid Gradient Buttons: White Text Is Guaranteed */
 html.light .bg-gradient-to-r,
 html.light .bg-gradient-to-br,
 html.light a.bg-gradient-to-r,
@@ -270,19 +320,19 @@ html.light button[class*="from-\[#8B3DFF\]"] span {
   color: #FFFFFF !important;
 }
 
-/* Secondary ghost buttons in bright mode */
-html.light a.bg-\[\#101B35\]\/80,
-html.light button.bg-\[\#101B35\]\/80 {
-  background-color: #FFFFFF !important;
-  color: #0F172A !important;
-  border-color: #CBD5E1 !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+/* Floating audio button inside video container */
+html.light .relative video + div button,
+html.light .relative .absolute.bottom-2 button,
+html.light .relative .absolute.bottom-4 button {
+  background-color: rgba(7, 13, 29, 0.88) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-html.light a.bg-\[\#101B35\]\/80:hover,
-html.light button.bg-\[\#101B35\]\/80:hover {
-  background-color: #F8FAFC !important;
-  border-color: #0284C7 !important;
+html.light .relative video + div button span,
+html.light .relative .absolute.bottom-2 button span,
+html.light .relative .absolute.bottom-4 button span {
+  color: #FFFFFF !important;
 }
 
 /* Inputs & Form controls */
@@ -297,13 +347,6 @@ html.light select {
 html.light input::placeholder,
 html.light textarea::placeholder {
   color: #64748B !important;
-}
-
-/* Navigation bar in bright mode */
-html.light nav {
-  background-color: rgba(255, 255, 255, 0.94) !important;
-  border-bottom-color: #E2E8F0 !important;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06) !important;
 }
 
 /* Footer in bright mode */
