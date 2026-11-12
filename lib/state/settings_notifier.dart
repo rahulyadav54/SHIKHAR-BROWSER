@@ -17,6 +17,8 @@ class SettingsState {
   final String aiModel;
   final bool aiConsent;
   final bool hasApiKey;
+  final String homeThemePreset;
+  final String? customWallpaperPath;
   final bool isLoading;
 
   const SettingsState({
@@ -33,6 +35,8 @@ class SettingsState {
     required this.aiModel,
     required this.aiConsent,
     required this.hasApiKey,
+    this.homeThemePreset = 'default',
+    this.customWallpaperPath,
     this.isLoading = false,
   });
 
@@ -50,6 +54,8 @@ class SettingsState {
     String? aiModel,
     bool? aiConsent,
     bool? hasApiKey,
+    String? homeThemePreset,
+    String? customWallpaperPath,
     bool? isLoading,
   }) {
     return SettingsState(
@@ -66,6 +72,8 @@ class SettingsState {
       aiModel: aiModel ?? this.aiModel,
       aiConsent: aiConsent ?? this.aiConsent,
       hasApiKey: hasApiKey ?? this.hasApiKey,
+      homeThemePreset: homeThemePreset ?? this.homeThemePreset,
+      customWallpaperPath: customWallpaperPath ?? this.customWallpaperPath,
       isLoading: isLoading ?? this.isLoading,
     );
   }
@@ -90,6 +98,8 @@ class SettingsNotifier extends StateNotifier<SettingsState> {
           aiModel: 'gemini-1.5-flash',
           aiConsent: false,
           hasApiKey: false,
+          homeThemePreset: 'default',
+          customWallpaperPath: null,
           isLoading: true,
         )) {
     loadSettings();
@@ -108,6 +118,8 @@ class SettingsNotifier extends StateNotifier<SettingsState> {
     if (modeStr == 'light') mode = ThemeMode.light;
     if (modeStr == 'dark') mode = ThemeMode.dark;
 
+    final wallpaper = all['custom_wallpaper_path'];
+
     state = state.copyWith(
       themeMode: mode,
       searchEngine: defaultEngine,
@@ -122,6 +134,8 @@ class SettingsNotifier extends StateNotifier<SettingsState> {
       aiModel: (aiPrefs['model'] as String?) ?? 'gemini-1.5-flash',
       aiConsent: (aiPrefs['consent_status'] as int? ?? 0) == 1,
       hasApiKey: apiKey != null && apiKey.isNotEmpty,
+      homeThemePreset: all['home_theme_preset'] ?? 'default',
+      customWallpaperPath: (wallpaper != null && wallpaper.isNotEmpty) ? wallpaper : null,
       isLoading: false,
     );
   }
@@ -130,6 +144,34 @@ class SettingsNotifier extends StateNotifier<SettingsState> {
     final str = mode == ThemeMode.light ? 'light' : (mode == ThemeMode.dark ? 'dark' : 'system');
     await _service.setSetting('theme_mode', str);
     state = state.copyWith(themeMode: mode);
+  }
+
+  Future<void> setHomeThemePreset(String preset) async {
+    await _service.setSetting('home_theme_preset', preset);
+    if (preset == 'light') {
+      await setThemeMode(ThemeMode.light);
+    } else if (state.themeMode == ThemeMode.light && preset != 'light') {
+      await setThemeMode(ThemeMode.dark);
+    }
+    state = state.copyWith(homeThemePreset: preset);
+  }
+
+  Future<void> setCustomWallpaper(String? filePath) async {
+    if (filePath != null && filePath.isNotEmpty) {
+      await _service.setSetting('custom_wallpaper_path', filePath);
+      await _service.setSetting('home_theme_preset', 'custom');
+      state = state.copyWith(
+        customWallpaperPath: filePath,
+        homeThemePreset: 'custom',
+      );
+    } else {
+      await _service.setSetting('custom_wallpaper_path', '');
+      await _service.setSetting('home_theme_preset', 'default');
+      state = state.copyWith(
+        customWallpaperPath: null,
+        homeThemePreset: 'default',
+      );
+    }
   }
 
   Future<void> setDefaultSearchEngine(String id) async {
@@ -167,4 +209,3 @@ class SettingsNotifier extends StateNotifier<SettingsState> {
 final settingsProvider = StateNotifierProvider<SettingsNotifier, SettingsState>((ref) {
   return SettingsNotifier();
 });
-

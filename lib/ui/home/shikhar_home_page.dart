@@ -11,6 +11,7 @@ import '../../state/history_notifier.dart';
 import '../../state/settings_notifier.dart';
 import '../../state/tabs_notifier.dart';
 import '../ai_assistant/shikhar_ai_panel.dart';
+import 'theme_customizer_sheet.dart';
 
 class QuickShortcutItem {
   final String id;
@@ -283,9 +284,22 @@ class _ShikharHomePageState extends ConsumerState<ShikharHomePage> {
     }
   }
 
+  void _openThemeCustomizer() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (ctx) => const ThemeCustomizerSheet(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final settings = ref.watch(settingsProvider);
+    final isPresetLight = settings.homeThemePreset == 'light';
+    final effectiveIsDark = isPresetLight ? false : isDark;
+
     final historyState = ref.watch(historyProvider);
     final now = DateTime.now();
     final dateFormatted = DateFormat('EEEE, MMMM d').format(now);
@@ -294,16 +308,46 @@ class _ShikharHomePageState extends ConsumerState<ShikharHomePage> {
     return Scaffold(
       backgroundColor: widget.isPrivate
           ? ShikharColors.privateDarkBg
-          : (isDark ? ShikharColors.darkBackground : ShikharColors.lightBackground),
-      body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 28),
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 840),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+          : (effectiveIsDark ? ShikharColors.darkBackground : ShikharColors.lightBackground),
+      floatingActionButton: widget.isPrivate
+          ? null
+          : FloatingActionButton.extended(
+              onPressed: _openThemeCustomizer,
+              icon: const Icon(Icons.palette_rounded, size: 18),
+              label: const Text(
+                'Customize Theme',
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+              ),
+              backgroundColor: const Color(0xFF101B35).withValues(alpha: 0.9),
+              foregroundColor: const Color(0xFF26D9FF),
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+                side: BorderSide(
+                  color: const Color(0xFF26D9FF).withValues(alpha: 0.35),
+                  width: 1.2,
+                ),
+              ),
+            ),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: widget.isPrivate
+            ? null
+            : ThemeCustomizerSheet.getBackgroundDecoration(
+                preset: settings.homeThemePreset,
+                customWallpaperPath: settings.customWallpaperPath,
+                isDark: effectiveIsDark,
+              ),
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 28),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 840),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
                 // Fixed Private Mode Banner (Responsive with Flexible to prevent RenderFlex overflow)
                 if (widget.isPrivate)
                   Container(
@@ -617,8 +661,9 @@ class _ShikharHomePageState extends ConsumerState<ShikharHomePage> {
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 
   Widget _buildShortcutTile({
     required QuickShortcutItem item,

@@ -1,5 +1,7 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:file_picker/file_picker.dart';
 import '../../core/branding/brand_constants.dart';
 import '../../core/branding/shikhar_logo.dart';
 import '../../core/theme/shikhar_colors.dart';
@@ -7,6 +9,7 @@ import '../../state/history_notifier.dart';
 import '../../state/settings_notifier.dart';
 import '../../state/ai_assistant_notifier.dart';
 import '../onboarding/onboarding_screen.dart';
+import '../home/theme_customizer_sheet.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
@@ -137,8 +140,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             child: Column(
               children: [
                 ListTile(
-                  leading: const Icon(Icons.palette_outlined),
-                  title: const Text('Theme'),
+                  leading: const Icon(Icons.brightness_medium_rounded),
+                  title: const Text('Theme Mode'),
                   subtitle: Text(settings.themeMode.name.toUpperCase()),
                   trailing: DropdownButton<ThemeMode>(
                     value: settings.themeMode,
@@ -153,6 +156,72 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         ref.read(settingsProvider.notifier).setThemeMode(mode);
                       }
                     },
+                  ),
+                ),
+                const Divider(height: 1),
+                ListTile(
+                  leading: const Icon(Icons.palette_outlined),
+                  title: const Text('Homepage Theme & Wallpaper'),
+                  subtitle: Text(
+                    settings.homeThemePreset == 'custom'
+                        ? 'Custom PC Wallpaper'
+                        : ThemeCustomizerSheet.presets
+                            .firstWhere((p) => p.id == settings.homeThemePreset,
+                                orElse: () => ThemeCustomizerSheet.presets.first)
+                            .name,
+                  ),
+                  trailing: TextButton.icon(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        builder: (ctx) => const ThemeCustomizerSheet(),
+                      );
+                    },
+                    icon: const Icon(Icons.tune_rounded, size: 16),
+                    label: const Text('Customize'),
+                  ),
+                ),
+                const Divider(height: 1),
+                ListTile(
+                  leading: const Icon(Icons.image_outlined),
+                  title: const Text('Upload Wallpaper from PC'),
+                  subtitle: Text(
+                    settings.customWallpaperPath != null
+                        ? File(settings.customWallpaperPath!).uri.pathSegments.last
+                        : 'Choose an image from your computer',
+                  ),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ElevatedButton.icon(
+                        onPressed: () async {
+                          final result = await FilePicker.platform.pickFiles(
+                            type: FileType.custom,
+                            allowedExtensions: ['png', 'jpg', 'jpeg', 'webp', 'bmp'],
+                          );
+                          if (result != null && result.files.isNotEmpty) {
+                            final path = result.files.single.path;
+                            if (path != null) {
+                              await ref.read(settingsProvider.notifier).setCustomWallpaper(path);
+                            }
+                          }
+                        },
+                        icon: const Icon(Icons.folder_open_rounded, size: 16),
+                        label: Text(settings.customWallpaperPath != null ? 'Change' : 'Browse'),
+                      ),
+                      if (settings.customWallpaperPath != null) ...[
+                        const SizedBox(width: 4),
+                        IconButton(
+                          onPressed: () {
+                            ref.read(settingsProvider.notifier).setCustomWallpaper(null);
+                          },
+                          icon: const Icon(Icons.delete_outline, color: Colors.redAccent, size: 18),
+                          tooltip: 'Remove custom wallpaper',
+                        ),
+                      ],
+                    ],
                   ),
                 ),
               ],
