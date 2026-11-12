@@ -1,5 +1,5 @@
 import React from "react";
-import { Download, Laptop, Smartphone, Check, ArrowRight, ShieldCheck, Cpu } from "lucide-react";
+import { Download, Laptop, Smartphone, Check, ArrowRight, ShieldCheck, Cpu, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
@@ -57,18 +57,29 @@ export function DownloadSection() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-[#26D9FF]" />
-                  <span>Installer Size: <strong>~{siteConfig.downloads.windows.size}</strong></span>
+                  <span>Full Package: <strong>{siteConfig.downloads.windows.fileName}</strong></span>
                 </div>
               </div>
             </div>
 
-            <Link
-              href="/downloads"
-              className="w-full py-4 rounded-2xl font-bold text-sm text-white bg-gradient-to-r from-[#168BFF] to-[#26D9FF] shadow-lg shadow-[#168BFF]/30 hover:shadow-[#26D9FF]/40 transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-[1.02]"
-            >
-              <Download className="w-4 h-4" />
-              <span>Download Windows Installer (.exe)</span>
-            </Link>
+            <div className="space-y-3">
+              <a
+                href={siteConfig.downloads.windows.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 rounded-2xl font-bold text-sm text-white bg-gradient-to-r from-[#168BFF] to-[#26D9FF] shadow-lg shadow-[#168BFF]/30 hover:shadow-[#26D9FF]/40 transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-[1.02]"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download Windows Package (.zip)</span>
+              </a>
+
+              <Link
+                href="/downloads"
+                className="block text-center text-xs text-[#A7B5CC] hover:text-[#26D9FF] transition-colors py-1"
+              >
+                View installation instructions →
+              </Link>
+            </div>
           </div>
 
           {/* Android Download Card */}
@@ -80,8 +91,8 @@ export function DownloadSection() {
                 <div className="p-4 rounded-2xl bg-[#8B3DFF]/15 border border-[#8B3DFF]/30 text-[#A78BFA]">
                   <Smartphone className="w-8 h-8" />
                 </div>
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                  {siteConfig.downloads.android.status}
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                  PLAY STORE COMING SOON
                 </span>
               </div>
 
@@ -103,26 +114,36 @@ export function DownloadSection() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-[#A78BFA]" />
-                  <span>Version: <strong>v{siteConfig.downloads.android.version} (Verified APK)</strong></span>
+                  <span>Direct APK: <strong>Available Now (v{siteConfig.downloads.android.version})</strong></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-[#A78BFA]" />
-                  <span>Media Downloader & YouTube Ad Skipper: <strong>Built-in</strong></span>
+                  <span>Google Play Store: <strong>Listing In Review (Coming Soon)</strong></span>
                 </div>
               </div>
             </div>
 
-            <Link
-              href="/downloads"
-              className="w-full py-4 rounded-2xl font-bold text-sm text-white bg-gradient-to-r from-[#8B3DFF] to-[#168BFF] shadow-lg shadow-[#8B3DFF]/30 hover:shadow-[#168BFF]/40 transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-[1.02]"
-            >
-              <Download className="w-4 h-4" />
-              <span>Download Android Package (.apk)</span>
-            </Link>
+            <div className="space-y-3">
+              <a
+                href={siteConfig.downloads.android.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 rounded-2xl font-bold text-sm text-white bg-gradient-to-r from-[#8B3DFF] to-[#168BFF] shadow-lg shadow-[#8B3DFF]/30 hover:shadow-[#168BFF]/40 transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-[1.02]"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download Android Package (.apk)</span>
+              </a>
+
+              <Link
+                href="/downloads"
+                className="block text-center text-xs text-[#A7B5CC] hover:text-[#A78BFA] transition-colors py-1"
+              >
+                View installation instructions →
+              </Link>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
-

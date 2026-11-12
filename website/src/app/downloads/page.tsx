@@ -1,12 +1,12 @@
 import React from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { Download, Laptop, Smartphone, Check, FileCheck, Shield } from "lucide-react";
+import { Download, Laptop, Smartphone, Check, FileCheck, Shield, ExternalLink, Sparkles } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 export const metadata = {
   title: "Download SHIKHAR Browser — Windows & Android",
-  description: "Official download center for SHIKHAR Browser. Download verified Windows 10/11 64-bit installer and Android ARM64 APK.",
+  description: "Official download center for SHIKHAR Browser. Direct high-speed download for Windows 10/11 64-bit and Android APK.",
 };
 
 export default function DownloadsPage() {
@@ -40,13 +40,13 @@ export default function DownloadsPage() {
               </div>
               <h2 className="text-2xl font-black text-white mb-2">SHIKHAR for Windows</h2>
               <p className="text-xs text-[#A7B5CC] leading-relaxed mb-6">
-                Standalone 64-bit executable for Windows 10 & 11 with hardware acceleration, desktop tab management, and AI sidebar.
+                Full standalone package for Windows 10 & 11 (includes executable, Chromium WebView2 runtime engine, and offline data assets).
               </p>
 
               <div className="space-y-2 mb-8 text-xs text-[#A7B5CC]">
                 <div className="flex justify-between py-1.5 border-b border-white/5">
                   <span>Version:</span>
-                  <strong className="text-white">v{siteConfig.downloads.windows.version} (Release)</strong>
+                  <strong className="text-white">v{siteConfig.downloads.windows.version} (Release Build)</strong>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-white/5">
                   <span>Architecture:</span>
@@ -57,20 +57,33 @@ export default function DownloadsPage() {
                   <strong className="text-white">{siteConfig.downloads.windows.os}</strong>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-white/5">
-                  <span>Executable Name:</span>
-                  <strong className="text-white">{siteConfig.downloads.windows.fileName}</strong>
+                  <span>Format / Size:</span>
+                  <strong className="text-white">ZIP Archive (~{siteConfig.downloads.windows.size})</strong>
                 </div>
               </div>
             </div>
 
-            <a
-              href={`/${siteConfig.downloads.windows.fileName}`}
-              download
-              className="w-full py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#168BFF] to-[#26D9FF] hover:opacity-95 transition-all text-center flex items-center justify-center gap-2 shadow-lg shadow-[#168BFF]/30"
-            >
-              <Download className="w-4 h-4" />
-              <span>Download Windows Executable</span>
-            </a>
+            <div className="space-y-3">
+              <a
+                href={siteConfig.downloads.windows.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#168BFF] to-[#26D9FF] hover:opacity-95 transition-all text-center flex items-center justify-center gap-2 shadow-lg shadow-[#168BFF]/30"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download Windows Package (.zip)</span>
+              </a>
+
+              <a
+                href={siteConfig.downloads.windows.driveViewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 rounded-xl font-medium text-xs text-[#A7B5CC] hover:text-white bg-white/5 hover:bg-white/10 transition-all text-center flex items-center justify-center gap-1.5"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>View File on Google Drive</span>
+              </a>
+            </div>
           </div>
 
           {/* Android Download */}
@@ -80,19 +93,19 @@ export default function DownloadsPage() {
                 <div className="p-3.5 rounded-2xl bg-[#8B3DFF]/20 text-[#A78BFA] border border-[#8B3DFF]/30">
                   <Smartphone className="w-8 h-8" />
                 </div>
-                <span className="text-xs px-3 py-1 rounded-full font-bold bg-emerald-500/20 text-emerald-400 font-mono">
-                  VERIFIED BUILD
+                <span className="text-xs px-3 py-1 rounded-full font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                  COMING SOON ON PLAY STORE
                 </span>
               </div>
               <h2 className="text-2xl font-black text-white mb-2">SHIKHAR for Android</h2>
               <p className="text-xs text-[#A7B5CC] leading-relaxed mb-6">
-                Full-featured mobile Chromium browser with 9:16 cultural cinematic introduction, bottom navigation bar, and YouTube ad skipper.
+                Mobile Chromium browser with 9:16 cultural cinematic introduction, bottom navigation bar, YouTube ad skipper, and media downloader.
               </p>
 
               <div className="space-y-2 mb-8 text-xs text-[#A7B5CC]">
                 <div className="flex justify-between py-1.5 border-b border-white/5">
                   <span>Version:</span>
-                  <strong className="text-white">v{siteConfig.downloads.android.version} (APK)</strong>
+                  <strong className="text-white">v{siteConfig.downloads.android.version} (Verified APK)</strong>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-white/5">
                   <span>Architecture:</span>
@@ -103,20 +116,28 @@ export default function DownloadsPage() {
                   <strong className="text-white">{siteConfig.downloads.android.os}</strong>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-white/5">
-                  <span>Package:</span>
-                  <strong className="text-white">com.shikhar.browser</strong>
+                  <span>Google Play Store:</span>
+                  <strong className="text-amber-300 font-semibold">Listing in review (Coming Soon)</strong>
                 </div>
               </div>
             </div>
 
-            <a
-              href={`/${siteConfig.downloads.android.fileName}`}
-              download
-              className="w-full py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#8B3DFF] to-[#168BFF] hover:opacity-95 transition-all text-center flex items-center justify-center gap-2 shadow-lg shadow-[#8B3DFF]/30"
-            >
-              <Download className="w-4 h-4" />
-              <span>Download Android APK Package</span>
-            </a>
+            <div className="space-y-3">
+              <a
+                href={siteConfig.downloads.android.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#8B3DFF] to-[#168BFF] hover:opacity-95 transition-all text-center flex items-center justify-center gap-2 shadow-lg shadow-[#8B3DFF]/30"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download Android APK Package</span>
+              </a>
+
+              <div className="w-full py-2.5 rounded-xl text-center text-xs text-[#A7B5CC] bg-white/5 border border-white/5 flex items-center justify-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                <span>Google Play Store Edition — Releasing Soon</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -129,15 +150,15 @@ export default function DownloadsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-[#A7B5CC] leading-relaxed">
             <div>
               <h4 className="font-bold text-white mb-1.5">Windows PC:</h4>
-              <p>1. Download <code>shikhar_browser.exe</code>.</p>
-              <p>2. Double-click the file to launch directly or move to your Program Files folder.</p>
-              <p>3. Right-click to Pin to Taskbar for convenient 1-click access.</p>
+              <p>1. Download the <code>SHIKHAR-Browser-Windows-x64.zip</code> file.</p>
+              <p>2. Right-click and choose <strong>Extract All...</strong></p>
+              <p>3. Double-click <code>shikhar_browser.exe</code> to run immediately (no installer required).</p>
             </div>
             <div>
-              <h4 className="font-bold text-white mb-1.5">Android Device:</h4>
-              <p>1. Download the <code>.apk</code> on your mobile device.</p>
-              <p>2. Open your Downloads folder and tap the APK.</p>
-              <p>3. If prompted, allow "Install Unknown Apps" in Android security settings.</p>
+              <h4 className="font-bold text-white mb-1.5">Android Smartphone:</h4>
+              <p>1. Tap the download link on your phone.</p>
+              <p>2. Open your Notifications or Downloads folder and tap the downloaded APK.</p>
+              <p>3. Tap <strong>Install</strong> (enable "Allow unknown sources" if prompted).</p>
             </div>
           </div>
         </div>
@@ -146,4 +167,3 @@ export default function DownloadsPage() {
     </div>
   );
 }
-
