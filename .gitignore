@@ -48,6 +48,7 @@ app.*.map.json
 .widget_preview/
 
 # Next.js Website artifacts
+.next/
 website/.next/
 website/node_modules/
 website/public/app-release.apk
