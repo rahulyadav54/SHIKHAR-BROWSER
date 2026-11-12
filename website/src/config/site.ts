@@ -1,0 +1,52 @@
+export const siteConfig = {
+  name: "SHIKHAR Browser",
+  shortName: "SHIKHAR",
+  tagline: "YOUR WORLD. YOUR WEB.",
+  subTagline: "Smarter Browsing. Stronger AI. Brighter Tomorrows.",
+  positioning: "AD-FREE. AI-POWERED. BUILT FOR YOU.",
+  description:
+    "Discover SHIKHAR Browser — an ad-free, AI-powered Chromium browser for Windows and Android designed for speed, privacy, and productivity.",
+  url: "https://shikharbrowser.com",
+  developer: "ZAYA CODE HUB",
+  links: {
+    github: "https://github.com",
+    contact: "/contact",
+    privacy: "/privacy",
+    terms: "/terms",
+    downloads: "/downloads",
+  },
+  downloads: {
+    windows: {
+      version: "1.0.0",
+      status: "Available",
+      title: "SHIKHAR for Windows",
+      arch: "64-bit (x64)",
+      os: "Windows 10 / Windows 11",
+      url: process.env.NEXT_PUBLIC_WINDOWS_DOWNLOAD_URL || "/downloads",
+      fileName: "shikhar_browser.exe",
+      size: "35 MB",
+    },
+    android: {
+      version: "1.0.0",
+      status: "Available",
+      title: "SHIKHAR for Android",
+      arch: "arm64-v8a",
+      os: "Android 8.0+",
+      url: process.env.NEXT_PUBLIC_ANDROID_DOWNLOAD_URL || "/downloads",
+      playStoreUrl: process.env.NEXT_PUBLIC_PLAY_STORE_URL || "",
+      fileName: "app-release.apk",
+      size: "42 MB",
+    },
+  },
+  navItems: [
+    { label: "Home", href: "/" },
+    { label: "Features", href: "/features" },
+    { label: "SHIKHAR AI", href: "/ai" },
+    { label: "Ad-Free", href: "/ad-free" },
+    { label: "Privacy", href: "/privacy" },
+    { label: "Downloads", href: "/downloads" },
+    { label: "FAQ", href: "/faq" },
+    { label: "About", href: "/about" },
+  ],
+};
+
