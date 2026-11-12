@@ -14,6 +14,7 @@ body {
   color: #FFFFFF;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* Glassmorphism effects */
@@ -22,6 +23,7 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(38, 217, 255, 0.12);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .glass-panel-hover {
@@ -63,4 +65,131 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #26D9FF;
+}
+
+/* ======================================================== */
+/* LIGHT MODE STYLES & OVERRIDES                            */
+/* Clean, executive, modern Apple/Vercel light styling     */
+/* ======================================================== */
+
+html.light body {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+html.light .bg-\[\#070D1D\] {
+  background-color: #F8FAFC !important;
+}
+
+html.light .bg-\[\#070D1D\]\/85,
+html.light .bg-\[\#070D1D\]\/90,
+html.light .bg-\[\#070D1D\]\/95 {
+  background-color: rgba(248, 250, 252, 0.95) !important;
+}
+
+html.light .bg-\[\#101B35\] {
+  background-color: #FFFFFF !important;
+}
+
+html.light .bg-\[\#101B35\]\/50,
+html.light .bg-\[\#101B35\]\/60,
+html.light .bg-\[\#101B35\]\/70,
+html.light .bg-\[\#101B35\]\/80,
+html.light .bg-\[\#101B35\]\/90 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+html.light .bg-\[\#050914\] {
+  background-color: #F1F5F9 !important;
+}
+
+html.light .bg-\[\#040812\] {
+  background-color: #F1F5F9 !important;
+  border-top-color: rgba(203, 213, 225, 0.8) !important;
+}
+
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border: 1px solid rgba(203, 213, 225, 0.8) !important;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06) !important;
+}
+
+html.light .glass-panel-hover:hover {
+  border-color: rgba(2, 132, 199, 0.4) !important;
+  box-shadow: 0 12px 35px -8px rgba(2, 132, 199, 0.12) !important;
+}
+
+html.light .text-white {
+  color: #0F172A !important;
+}
+
+html.light .text-white\/90,
+html.light .text-white\/80 {
+  color: #1E293B !important;
+}
+
+html.light .text-\[\#A7B5CC\] {
+  color: #475569 !important;
+}
+
+html.light .border-white\/5,
+html.light .border-white\/10,
+html.light .border-white\/15,
+html.light .border-white\/20 {
+  border-color: rgba(203, 213, 225, 0.8) !important;
+}
+
+html.light .border-\[\#26D9FF\]\/10,
+html.light .border-\[\#26D9FF\]\/15,
+html.light .border-\[\#26D9FF\]\/20,
+html.light .border-\[\#26D9FF\]\/30 {
+  border-color: rgba(2, 132, 199, 0.25) !important;
+}
+
+/* Light mode text gradient */
+html.light .text-gradient {
+  background: linear-gradient(135deg, #0F172A 0%, #0284C7 50%, #7C3AED 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+html.light .text-gradient-cyan {
+  background: linear-gradient(135deg, #0284C7 0%, #2563EB 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Ensure buttons with gradients retain crisp white text in light mode */
+html.light .bg-gradient-to-r,
+html.light .bg-gradient-to-br,
+html.light a.bg-gradient-to-r,
+html.light button.bg-gradient-to-r,
+html.light a[class*="from-\[#168BFF\]"],
+html.light button[class*="from-\[#168BFF\]"],
+html.light a[class*="from-\[#8B3DFF\]"],
+html.light button[class*="from-\[#8B3DFF\]"] {
+  color: #FFFFFF !important;
+}
+
+html.light a[class*="from-\[#168BFF\]"] span,
+html.light button[class*="from-\[#168BFF\]"] span,
+html.light a[class*="from-\[#8B3DFF\]"] span,
+html.light button[class*="from-\[#8B3DFF\]"] span,
+html.light a.bg-gradient-to-r span,
+html.light button.bg-gradient-to-r span {
+  color: #FFFFFF !important;
+}
+
+/* Scrollbars in light mode */
+html.light ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #0284C7;
 }

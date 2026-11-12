@@ -2,68 +2,68 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Download, Sparkles, Shield, Zap, Laptop, Smartphone, Search, RefreshCw, Volume2, VolumeX, Play, ArrowRight } from "lucide-react";
+import { Download, Sparkles, Shield, Zap, Laptop, Smartphone, Volume2, VolumeX, ArrowRight } from "lucide-react";
 
 export function Hero() {
   const [activePlatform, setActivePlatform] = useState<"windows" | "android">("windows");
   const [isMuted, setIsMuted] = useState(true);
 
   return (
-    <section className="relative min-h-[92vh] pt-32 pb-20 flex flex-col justify-center items-center overflow-hidden">
+    <section className="relative min-h-[90vh] pt-28 sm:pt-36 pb-16 sm:pb-24 flex flex-col justify-center items-center overflow-hidden">
       {/* Background Decorative Gradients & Mountain glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-[#168BFF]/25 via-[#8B3DFF]/15 to-transparent blur-[120px] rounded-full" />
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] max-w-full h-[550px] bg-gradient-to-b from-[#168BFF]/25 via-[#8B3DFF]/15 to-transparent blur-[120px] rounded-full" />
         <div className="absolute top-1/2 -left-40 w-96 h-96 bg-[#26D9FF]/10 blur-[100px] rounded-full" />
         <div className="absolute bottom-10 -right-40 w-96 h-96 bg-[#8B3DFF]/15 blur-[100px] rounded-full" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Brand Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#101B35]/80 border border-[#26D9FF]/30 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(38,217,255,0.2)]">
+        <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#101B35]/80 border border-[#26D9FF]/30 backdrop-blur-md mb-6 sm:mb-8 shadow-[0_0_20px_rgba(38,217,255,0.2)]">
           <span className="flex h-2 w-2 rounded-full bg-[#26D9FF] animate-ping" />
-          <span className="text-xs font-bold tracking-wide text-white">
+          <span className="text-[10px] sm:text-xs font-bold tracking-wide text-white">
             OFFICIAL RELEASE • DEVELOPED BY ZAYA CODE HUB
           </span>
         </div>
 
         {/* Headlines */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.08] mb-4">
-          REACH NEW HEIGHTS. <br />
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.12] sm:leading-[1.08] mb-4">
+          REACH NEW HEIGHTS. <br className="hidden sm:inline" />
           <span className="text-gradient">BROWSE BEYOND LIMITS.</span>
         </h1>
 
-        <p className="max-w-2xl mx-auto text-base sm:text-lg text-[#A7B5CC] leading-relaxed mb-8">
+        <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-[#A7B5CC] leading-relaxed mb-6 sm:mb-8 px-2">
           Discover <strong className="text-white">SHIKHAR Browser</strong> — an ad-free, AI-powered browsing experience crafted for Windows and Android. Built for maximum speed, local-first privacy, and high-productivity workflows.
         </p>
 
         {/* Three Core Feature Indicators */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mb-10 text-xs font-semibold text-white/90">
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101B35]/90 border border-white/10 shadow-sm">
-            <Shield className="w-4 h-4 text-emerald-400" />
-            <span>100% Ad-Free Experience</span>
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-8 sm:mb-10 text-[11px] sm:text-xs font-semibold text-white/90 px-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-full bg-[#101B35]/90 border border-white/10 shadow-sm">
+            <Shield className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <span>100% Ad-Free</span>
           </div>
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101B35]/90 border border-white/10 shadow-sm">
-            <Sparkles className="w-4 h-4 text-[#26D9FF]" />
+          <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-full bg-[#101B35]/90 border border-white/10 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#26D9FF] shrink-0" />
             <span>Custom SHIKHAR AI</span>
           </div>
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101B35]/90 border border-white/10 shadow-sm">
-            <Zap className="w-4 h-4 text-[#8B3DFF]" />
-            <span>Privacy-First Architecture</span>
+          <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-full bg-[#101B35]/90 border border-white/10 shadow-sm">
+            <Zap className="w-3.5 h-3.5 text-[#8B3DFF] shrink-0" />
+            <span>Privacy-First</span>
           </div>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-14 w-full max-w-md mx-auto sm:max-w-none">
           <Link
             href="/downloads"
-            className="w-full sm:w-auto px-8 py-4 rounded-full font-bold text-sm text-white bg-gradient-to-r from-[#168BFF] via-[#26D9FF] to-[#8B3DFF] shadow-[0_0_30px_rgba(22,139,255,0.4)] hover:shadow-[0_0_45px_rgba(38,217,255,0.6)] transition-all duration-300 hover:scale-[1.03] flex items-center justify-center gap-2.5"
+            className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#168BFF] via-[#26D9FF] to-[#8B3DFF] shadow-[0_0_30px_rgba(22,139,255,0.4)] hover:shadow-[0_0_45px_rgba(38,217,255,0.6)] transition-all duration-300 hover:scale-[1.03] flex items-center justify-center gap-2"
           >
-            <Download className="w-5 h-5 text-white" />
+            <Download className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             <span>DOWNLOAD FOR WINDOWS</span>
           </Link>
           <Link
             href="/features"
-            className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-sm text-white bg-[#101B35]/80 hover:bg-[#101B35] border border-white/15 hover:border-[#26D9FF]/40 transition-all duration-200 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-semibold text-xs sm:text-sm text-white bg-[#101B35]/80 hover:bg-[#101B35] border border-white/15 hover:border-[#26D9FF]/40 transition-all duration-200 flex items-center justify-center gap-2"
           >
             <span>EXPLORE SHIKHAR</span>
             <ArrowRight className="w-4 h-4 text-[#26D9FF]" />
@@ -71,21 +71,21 @@ export function Hero() {
         </div>
 
         {/* Video Mode Switcher (Desktop vs Mobile Intro) */}
-        <div className="flex items-center justify-center gap-2 mb-6">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-5">
           <button
             onClick={() => setActivePlatform("windows")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all ${
               activePlatform === "windows"
                 ? "bg-[#168BFF] text-white shadow-lg shadow-[#168BFF]/30"
                 : "bg-[#101B35]/60 text-[#A7B5CC] hover:text-white"
             }`}
           >
             <Laptop className="w-4 h-4" />
-            <span>Windows Desktop Intro (16:9)</span>
+            <span>Windows Desktop (16:9)</span>
           </button>
           <button
             onClick={() => setActivePlatform("android")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all ${
               activePlatform === "android"
                 ? "bg-[#8B3DFF] text-white shadow-lg shadow-[#8B3DFF]/30"
                 : "bg-[#101B35]/60 text-[#A7B5CC] hover:text-white"
@@ -97,8 +97,8 @@ export function Hero() {
         </div>
 
         {/* Live Cinematic Video Player with Authentic Nepali Music */}
-        <div className="relative mx-auto max-w-4xl rounded-3xl p-2 sm:p-3 bg-gradient-to-b from-[#26D9FF]/30 via-[#101B35] to-[#070D1D] shadow-[0_25px_70px_-15px_rgba(0,0,0,0.9)] border border-[#26D9FF]/20 overflow-hidden">
-          <div className="relative bg-[#070D1D] rounded-2xl overflow-hidden flex items-center justify-center">
+        <div className="relative mx-auto max-w-4xl rounded-2xl sm:rounded-3xl p-1.5 sm:p-3 bg-gradient-to-b from-[#26D9FF]/30 via-[#101B35] to-[#070D1D] shadow-[0_25px_70px_-15px_rgba(0,0,0,0.9)] border border-[#26D9FF]/20 overflow-hidden">
+          <div className="relative bg-[#070D1D] rounded-xl sm:rounded-2xl overflow-hidden flex items-center justify-center">
             {activePlatform === "windows" ? (
               <video
                 key="desktop-video"
@@ -107,11 +107,11 @@ export function Hero() {
                 loop
                 muted={isMuted}
                 playsInline
-                className="w-full h-auto aspect-video object-cover rounded-xl"
+                className="w-full h-auto aspect-video object-cover rounded-lg sm:rounded-xl"
               />
             ) : (
-              <div className="py-6 flex justify-center w-full bg-[#050914]">
-                <div className="w-[300px] h-[533px] rounded-2xl overflow-hidden border-2 border-[#8B3DFF]/40 shadow-2xl">
+              <div className="py-4 sm:py-6 flex justify-center w-full bg-[#050914]">
+                <div className="w-[260px] sm:w-[300px] aspect-[9/16] rounded-xl sm:rounded-2xl overflow-hidden border-2 border-[#8B3DFF]/40 shadow-2xl">
                   <video
                     key="mobile-video"
                     src="/videos/shikhar_mobile_intro.mp4"
@@ -126,20 +126,20 @@ export function Hero() {
             )}
 
             {/* Audio Toggle Floating Pill */}
-            <div className="absolute bottom-4 right-4 z-20 flex items-center gap-2">
+            <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 z-20 flex items-center gap-2">
               <button
                 onClick={() => setIsMuted(!isMuted)}
-                className="px-3.5 py-2 rounded-full bg-[#070D1D]/80 backdrop-blur-md border border-white/20 text-white text-xs font-bold flex items-center gap-2 shadow-xl hover:bg-[#168BFF] transition-all"
+                className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-full bg-[#070D1D]/85 backdrop-blur-md border border-white/20 text-white text-[10px] sm:text-xs font-bold flex items-center gap-1.5 sm:gap-2 shadow-xl hover:bg-[#168BFF] transition-all"
               >
                 {isMuted ? (
                   <>
-                    <VolumeX className="w-4 h-4 text-rose-400" />
-                    <span>Unmute Nepali Soundtrack</span>
+                    <VolumeX className="w-3.5 h-3.5 text-rose-400 shrink-0" />
+                    <span>Unmute Music</span>
                   </>
                 ) : (
                   <>
-                    <Volume2 className="w-4 h-4 text-[#26D9FF] animate-pulse" />
-                    <span>Mute Soundtrack</span>
+                    <Volume2 className="w-3.5 h-3.5 text-[#26D9FF] animate-pulse shrink-0" />
+                    <span>Mute Music</span>
                   </>
                 )}
               </button>
