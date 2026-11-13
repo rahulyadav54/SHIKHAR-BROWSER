@@ -19,35 +19,35 @@ export function Hero() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Brand Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#101B35]/80 border border-[#26D9FF]/30 backdrop-blur-md mb-6 sm:mb-8 shadow-[0_0_20px_rgba(38,217,255,0.2)]">
-          <span className="flex h-2 w-2 rounded-full bg-[#26D9FF] animate-ping" />
-          <span className="text-[10px] sm:text-xs font-extrabold tracking-wide text-white">
+        <div className="hero-brand-badge inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full border mb-6 sm:mb-8">
+          <span className="flex h-2 w-2 rounded-full bg-[#168BFF] animate-ping" />
+          <span className="text-[10px] sm:text-xs font-black tracking-wide">
             OFFICIAL RELEASE • DEVELOPED BY ZAYA CODE HUB
           </span>
         </div>
 
         {/* Headlines */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.12] sm:leading-[1.08] mb-4">
-          REACH NEW HEIGHTS. <br className="hidden sm:inline" />
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.12] sm:leading-[1.08] mb-4">
+          <span className="hero-title-main">REACH NEW HEIGHTS.</span> <br className="hidden sm:inline" />
           <span className="text-gradient">BROWSE BEYOND LIMITS.</span>
         </h1>
 
-        <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-[#A7B5CC] leading-relaxed mb-6 sm:mb-8 px-2 font-medium">
-          Discover <strong className="text-white font-bold">SHIKHAR Browser</strong> — an ad-free, AI-powered browsing experience crafted for Windows and Android. Built for maximum speed, local-first privacy, and high-productivity workflows.
+        <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg hero-lead leading-relaxed mb-6 sm:mb-8 px-2 font-medium">
+          Discover <strong className="font-bold hero-lead-bold">SHIKHAR Browser</strong> — an ad-free, AI-powered browsing experience crafted for Windows and Android. Built for maximum speed, local-first privacy, and high-productivity workflows.
         </p>
 
         {/* Three Core Feature Indicators */}
         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mb-8 sm:mb-10 text-xs font-bold px-2">
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#101B35]/90 border border-white/10 shadow-sm text-white">
-            <Shield className="w-4 h-4 text-emerald-400 shrink-0" />
+          <div className="pill-adfree flex items-center gap-2 px-4 py-2 rounded-full border shadow-sm">
+            <Shield className="w-4 h-4 shrink-0" />
             <span className="tracking-wide">100% Ad-Free</span>
           </div>
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#101B35]/90 border border-white/10 shadow-sm text-white">
-            <Sparkles className="w-4 h-4 text-[#26D9FF] shrink-0" />
+          <div className="pill-ai flex items-center gap-2 px-4 py-2 rounded-full border shadow-sm">
+            <Sparkles className="w-4 h-4 shrink-0" />
             <span className="tracking-wide">Custom SHIKHAR AI</span>
           </div>
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#101B35]/90 border border-white/10 shadow-sm text-white">
-            <Zap className="w-4 h-4 text-[#8B3DFF] shrink-0" />
+          <div className="pill-privacy flex items-center gap-2 px-4 py-2 rounded-full border shadow-sm">
+            <Zap className="w-4 h-4 shrink-0" />
             <span className="tracking-wide">Privacy-First</span>
           </div>
         </div>

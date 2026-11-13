@@ -372,3 +372,133 @@ html.light ::-webkit-scrollbar-thumb {
 html.light ::-webkit-scrollbar-thumb:hover {
   background: #0284C7;
 }
+
+/* ======================================================== */
+/* HERO & NAVBAR TARGETED ULTRA-CONTRAST STYLING            */
+/* ======================================================== */
+
+/* Navbar download button */
+.navbar-download-btn,
+html.light .navbar-download-btn,
+html.dark .navbar-download-btn {
+  background: linear-gradient(135deg, #168BFF 0%, #0070F3 50%, #7928CA 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 4px 15px rgba(0, 112, 243, 0.4) !important;
+}
+.navbar-download-btn span,
+.navbar-download-btn svg,
+html.light .navbar-download-btn span,
+html.light .navbar-download-btn svg,
+html.dark .navbar-download-btn span,
+html.dark .navbar-download-btn svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+
+/* Brand Badge */
+html.light .hero-brand-badge {
+  background-color: #EFF6FF !important;
+  border-color: #93C5FD !important;
+  color: #1E40AF !important;
+  box-shadow: 0 2px 10px rgba(30, 64, 175, 0.08) !important;
+}
+html.light .hero-brand-badge span {
+  color: #1E40AF !important;
+}
+
+html.dark .hero-brand-badge {
+  background-color: rgba(16, 27, 53, 0.85) !important;
+  border-color: rgba(38, 217, 255, 0.35) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 20px rgba(38, 217, 255, 0.2) !important;
+}
+html.dark .hero-brand-badge span {
+  color: #FFFFFF !important;
+}
+
+/* Hero title & text */
+html.light .hero-title-main {
+  color: #0F172A !important;
+}
+html.dark .hero-title-main {
+  color: #FFFFFF !important;
+}
+
+html.light .hero-lead {
+  color: #334155 !important;
+}
+html.dark .hero-lead {
+  color: #A7B5CC !important;
+}
+
+html.light .hero-lead-bold {
+  color: #0F172A !important;
+}
+html.dark .hero-lead-bold {
+  color: #FFFFFF !important;
+}
+
+/* Value Props Pills */
+html.light .pill-adfree {
+  background-color: #F0FDF4 !important;
+  border-color: #86EFAC !important;
+  color: #166534 !important;
+}
+html.light .pill-adfree svg,
+html.light .pill-adfree span {
+  color: #166534 !important;
+  stroke: #166534 !important;
+}
+
+html.dark .pill-adfree {
+  background-color: rgba(16, 27, 53, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+}
+html.dark .pill-adfree svg {
+  color: #34D399 !important;
+  stroke: #34D399 !important;
+}
+
+html.light .pill-ai {
+  background-color: #F0F9FF !important;
+  border-color: #7DD3FC !important;
+  color: #0369A1 !important;
+}
+html.light .pill-ai svg,
+html.light .pill-ai span {
+  color: #0369A1 !important;
+  stroke: #0369A1 !important;
+}
+
+html.dark .pill-ai {
+  background-color: rgba(16, 27, 53, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+}
+html.dark .pill-ai svg {
+  color: #26D9FF !important;
+  stroke: #26D9FF !important;
+}
+
+html.light .pill-privacy {
+  background-color: #FAF5FF !important;
+  border-color: #D8B4FE !important;
+  color: #6B21A8 !important;
+}
+html.light .pill-privacy svg,
+html.light .pill-privacy span {
+  color: #6B21A8 !important;
+  stroke: #6B21A8 !important;
+}
+
+html.dark .pill-privacy {
+  background-color: rgba(16, 27, 53, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+}
+html.dark .pill-privacy svg {
+  color: #A855F7 !important;
+  stroke: #A855F7 !important;
+}

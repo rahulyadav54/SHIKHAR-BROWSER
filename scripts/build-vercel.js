@@ -21,6 +21,14 @@ try {
     fs.cpSync(srcNext, destNext, { recursive: true });
   }
 
+  const srcPublic = path.join(websiteDir, 'public');
+  const destPublic = path.join(__dirname, '..', 'public');
+
+  if (fs.existsSync(srcPublic)) {
+    console.log(`📁 Copying public static assets from website/public to root public...`);
+    fs.cpSync(srcPublic, destPublic, { recursive: true });
+  }
+
   console.log('✅ Build completed successfully for Vercel!');
 } catch (error) {
   console.error('❌ Build failed:', error.message);

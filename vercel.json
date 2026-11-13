@@ -1,5 +1,4 @@
 {
-  "buildCommand": "node scripts/build-vercel.js",
-  "outputDirectory": "website/.next"
+  "buildCommand": "node scripts/build-vercel.js"
 }
 

@@ -56,5 +56,7 @@ website/public/shikhar_browser.exe
 *.zip
 installer_output/
 /SHIKHAR-Browser-Windows-Setup.exe
+/node_modules/
+/public/
 
 
