@@ -58,7 +58,7 @@ export default function DownloadsPage() {
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-white/5">
                   <span>Format / Size:</span>
-                  <strong className="text-white">ZIP Archive (~{siteConfig.downloads.windows.size})</strong>
+                  <strong className="text-white">Setup Installer .exe (~{siteConfig.downloads.windows.size})</strong>
                 </div>
               </div>
             </div>
@@ -66,22 +66,21 @@ export default function DownloadsPage() {
             <div className="space-y-3">
               <a
                 href={siteConfig.downloads.windows.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                download="SHIKHAR-Browser-Windows-Setup.exe"
                 className="w-full py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#168BFF] to-[#26D9FF] hover:opacity-95 transition-all text-center flex items-center justify-center gap-2 shadow-lg shadow-[#168BFF]/30"
               >
                 <Download className="w-4 h-4" />
-                <span>Download Windows Package (.zip)</span>
+                <span>Download Windows Installer (.exe)</span>
               </a>
 
               <a
-                href={siteConfig.downloads.windows.driveViewUrl}
+                href={siteConfig.downloads.windows.portableUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-2.5 rounded-xl font-medium text-xs text-[#A7B5CC] hover:text-white bg-white/5 hover:bg-white/10 transition-all text-center flex items-center justify-center gap-1.5"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
-                <span>View File on Google Drive</span>
+                <span>Download Portable ZIP Archive (.zip)</span>
               </a>
             </div>
           </div>

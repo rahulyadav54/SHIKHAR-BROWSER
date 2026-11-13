@@ -54,5 +54,7 @@ website/node_modules/
 website/public/app-release.apk
 website/public/shikhar_browser.exe
 *.zip
+installer_output/
+/SHIKHAR-Browser-Windows-Setup.exe
 
 
