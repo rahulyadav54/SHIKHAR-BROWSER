@@ -65,3 +65,4 @@ Write-Host "  -> Location: $rootInstaller" -ForegroundColor White
 Write-Host "  -> Website:  $websiteInstaller" -ForegroundColor White
 Write-Host "  -> Size:     $sizeMB MB" -ForegroundColor White
 Write-Host "==========================================================" -ForegroundColor Cyan
+

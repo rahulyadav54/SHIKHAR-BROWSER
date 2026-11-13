@@ -66,21 +66,22 @@ export default function DownloadsPage() {
             <div className="space-y-3">
               <a
                 href={siteConfig.downloads.windows.url}
-                download="SHIKHAR-Browser-Windows-Setup.exe"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#168BFF] to-[#26D9FF] hover:opacity-95 transition-all text-center flex items-center justify-center gap-2 shadow-lg shadow-[#168BFF]/30"
               >
                 <Download className="w-4 h-4" />
-                <span>Download Windows Installer (.exe)</span>
+                <span>Download Windows Setup Installer (.exe)</span>
               </a>
 
               <a
-                href={siteConfig.downloads.windows.portableUrl}
+                href={siteConfig.downloads.windows.directDownloadUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-2.5 rounded-xl font-medium text-xs text-[#A7B5CC] hover:text-white bg-white/5 hover:bg-white/10 transition-all text-center flex items-center justify-center gap-1.5"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
-                <span>Download Portable ZIP Archive (.zip)</span>
+                <span>Direct High-Speed Download (Drive)</span>
               </a>
             </div>
           </div>

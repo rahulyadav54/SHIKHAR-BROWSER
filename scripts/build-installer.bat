@@ -12,3 +12,4 @@ if %errorlevel% neq 0 (
 echo.
 echo [DONE] Installer built successfully.
 pause
+

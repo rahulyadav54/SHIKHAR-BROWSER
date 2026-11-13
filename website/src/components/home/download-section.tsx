@@ -65,11 +65,12 @@ export function DownloadSection() {
             <div className="space-y-3">
               <a
                 href={siteConfig.downloads.windows.url}
-                download="SHIKHAR-Browser-Windows-Setup.exe"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full py-4 rounded-2xl font-bold text-sm text-white bg-gradient-to-r from-[#168BFF] to-[#26D9FF] shadow-lg shadow-[#168BFF]/30 hover:shadow-[#26D9FF]/40 transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-[1.02]"
               >
                 <Download className="w-4 h-4" />
-                <span>Download Windows Installer (.exe)</span>
+                <span>Download Windows Setup Installer (.exe)</span>
               </a>
 
               <Link
